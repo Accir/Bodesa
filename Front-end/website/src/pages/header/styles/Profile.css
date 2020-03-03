@@ -1,0 +1,20 @@
+.profile-wrapper {
+    padding-left: 20px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-icon {
+    font-size: 30px !important;
+}
+
+.profile-link:hover {
+    color: #b1bfca;
+    text-decoration: none;
+}
+
+.profile-link {
+    color: inherit;
+}

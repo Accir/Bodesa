@@ -1,0 +1,18 @@
+.sidenav-paper {
+    margin-top: 80px;
+    width: 240px;
+}
+
+.sidenav-drawer {
+    width: 240px;
+}
+
+.sidenav-item:hover {
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.04);
+    cursor: pointer;
+}
+
+.sidenav-item {
+    transition: 0.1s;
+}

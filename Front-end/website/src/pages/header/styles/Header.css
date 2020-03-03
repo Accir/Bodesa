@@ -1,0 +1,17 @@
+.header-wrapper {
+    height: 80px;
+    background-color: #e3f2fd;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.header-right-row {
+    height: 80px;
+    margin-right: 10px !important;
+}

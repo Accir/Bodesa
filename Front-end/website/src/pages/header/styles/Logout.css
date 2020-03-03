@@ -1,0 +1,20 @@
+.logout-wrapper {
+    padding-left: 20px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logout-icon {
+    font-size: 29px !important;
+}
+
+.logout-link:hover {
+    color: #b1bfca;
+    text-decoration: none;
+}
+
+.logout-link {
+    color: inherit;
+}
