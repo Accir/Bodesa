@@ -11,6 +11,7 @@ class InviteID extends React.Component {
                     label="Pakvietimo ID"
                     className="invite-input"
                     margin="dense"
+                    onChange={this.props.handleInviteID}
                 />
             </Col>
         )

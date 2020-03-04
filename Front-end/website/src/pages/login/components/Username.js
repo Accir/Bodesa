@@ -11,6 +11,7 @@ class Username extends React.Component {
                     label="El. paštas"
                     className="email-input"
                     margin="dense"
+                    onChange={this.props.handleEmail}
                 />
             </Col>
         )

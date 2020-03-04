@@ -11,6 +11,7 @@ class Password extends React.Component {
                     label="Slaptažodis"
                     className="password-input"
                     margin="dense"
+                    onChange={this.props.handlePassword}
                 />
             </Col>
         )

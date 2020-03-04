@@ -11,6 +11,7 @@ class Password extends React.Component {
                         label="Slaptažodis"
                         className="password-input"
                         margin="dense"
+                        onChange={this.props.handlePassword}
                     />
                 </Col>
                 <Col lg={{ span: 12 }}>
@@ -18,6 +19,7 @@ class Password extends React.Component {
                         label="Pakartokite slaptažodį"
                         className="password-input"
                         margin="dense"
+                        onChange={this.props.handleRepeatPassword}
                     />
                 </Col>
             </div>

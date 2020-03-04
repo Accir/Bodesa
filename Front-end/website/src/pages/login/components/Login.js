@@ -10,6 +10,31 @@ import LoginButton from "./LoginButton"
 import "../styles/Login.css"
 
 class Login extends React.Component {
+
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            email: undefined,
+            password: undefined,
+        }
+
+        this.handleEmail = this.handleEmail.bind(this)
+        this.handlePassword = this.handlePassword.bind(this)
+    }
+
+    handleEmail(e) {
+        this.setState({
+            email: e.target.value
+        })
+    }
+
+    handlePassword(e) {
+        this.setState({
+            password: e.target.value
+        })
+    }
+
     render() {
         return (
             <div className="login-wrapper">
@@ -17,13 +42,14 @@ class Login extends React.Component {
                     <Col lg={{ span: 4, offset: 4 }} md={{ span: 6, offset: 3 }} sm={{ span: 8, offset: 2 }} xs={{ span: 12, offset: 0 }}>
                         <Paper className="input-form-paper">
                             <Logo />
-                            <Username />
-                            <Password />
+                            <Username handleEmail={this.handleEmail} />
+                            <Password handlePassword={this.handlePassword} />
                             <LoginButton />
                             <Register />
                         </Paper>
                     </Col>
                 </Container>
+
             </div>
         )
     }

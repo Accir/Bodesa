@@ -11,6 +11,7 @@ class Surname extends React.Component {
                     label="Pavardė"
                     className="surname-input"
                     margin="dense"
+                    onChange={this.props.handleSurname}
                 />
             </Col>
         )

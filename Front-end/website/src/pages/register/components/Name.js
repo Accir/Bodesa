@@ -11,6 +11,7 @@ class Name extends React.Component {
                     label="Vardas"
                     className="name-input"
                     margin="dense"
+                    onChange={this.props.handleName}
                 />
             </Col>
         )
