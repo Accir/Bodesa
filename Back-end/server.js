@@ -1,14 +1,40 @@
-const http = require('http')
+const express = require('express')
+const bodyParser = require('body-parser')
+const app = express()
+const port = 3001
+var cors = require('cors')
 
-const hostname = '127.0.0.1'
-const port = '3000'
+var corsOptions = {
+  origin: 'http://localhost:3000',
+  optionsSuccessStatus: 200
+}
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200
-  res.setHeader('Content-Type', 'text/plain')
-  res.end('Hello world')
+const User = require('./models/userModel')
+
+app.use(bodyParser.json())
+app.use(
+  bodyParser.urlencoded({
+    extended: true
+  })
+)
+
+// Default route
+
+app.get('/', (req, res) => {
+  res.json({ info: "Node.js, Express and Postgres API" })
 })
 
-server.listen(port, hostname, () => {
-  console.log('Server running at http://', hostname, ':', port, '/')
+// User routes
+
+// GET all users
+app.use('/get/users', cors(corsOptions), require('./routes/get/users'))
+// GET user by id
+app.use('/get/user', cors(corsOptions), require('./routes/get/userByID'))
+// POST check email and password
+app.use('/post/user', cors(corsOptions), require('./routes/post/userLogin'))
+// POST register user
+app.use('/post/userRegister', cors(corsOptions), require('./routes/post/userRegister'))
+
+app.listen(port, () => {
+  console.log(`App running on port ${port}`)
 })
