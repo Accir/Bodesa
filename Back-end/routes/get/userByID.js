@@ -3,23 +3,22 @@ const router = express.Router()
 const db = require("../../config/database")
 const User = require('../../models/userModel')
 
-router.get('/', (req, res) => {
-    var user_id = req.query.id
-    if (user_id !== undefined) {
-        User.findOne({
+router.get('/', async (req, res) => {
+    var { id } = req.query
+    if (!id) {
+        return res.send(JSON.stringify({ error: "Invalid input" }))
+    }
+    try {
+        var result = await User.findOne({
             where: {
-                id: user_id
+                id: id
             }
         })
-            .then(user => {
-                res.send(JSON.stringify(user))
-            })
-            .catch(err => {
-                console.log(err)
-                res.sendStatus(500)
-            })
+    } catch (err) {
+        console.log(err)
+        return res.status(500).send(JSON.stringify({ error: "Internal server error" }))
     }
-    else res.sendStatus(400)
+    return res.send(JSON.stringify(result))
 })
 
 module.exports = router;

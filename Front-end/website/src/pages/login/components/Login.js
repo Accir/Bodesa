@@ -89,6 +89,7 @@ class Login extends React.Component {
           passwordError: undefined,
           error: undefined
         });
+        this.props.history.push("/menu")
       } else {
         this.setState({
           error: true,

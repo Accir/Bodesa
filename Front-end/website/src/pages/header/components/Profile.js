@@ -7,11 +7,12 @@ class Profile extends React.Component {
     render() {
         return (
             <div className="profile-wrapper">
-                <Link to="/" className="profile-link">
-                    <span className="pr-2">
-                        Vartotojas
-                    </span>
+                <Link to="/menu" className="profile-link">
                     <PersonOutlineIcon className="profile-icon" />
+                    <span className="pr-2 profile-name">
+                        {this.props.handleName}
+                        {" " + this.props.handleSurname}
+                    </span>
                 </Link>
             </div>
         )

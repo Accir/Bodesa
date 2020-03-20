@@ -4,6 +4,7 @@ const db = require("../../config/database");
 const User = require("../../models/userModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const dotenv = require("dotenv");
 
 router.post("/", (req, res) => {
   if (req.body.email === undefined || req.body.password === undefined) {
@@ -15,15 +16,16 @@ router.post("/", (req, res) => {
       }
     }).then(response => {
       if (response) {
-        bcrypt.compare(req.body.password, response.password, function(err, response) {
+        bcrypt.compare(req.body.password, response.password, function (err, responseBcrypt) {
           if (!err) {
-            if (response == true) {
+            if (responseBcrypt == true) {
               // Generate and send JWT here
-              jwt.sign({ id: response.id, email: response.email }, process.env.KEY, function(err, token) {
+              jwt.sign({ id: response.id, email: response.email, name: response.name, surname: response.surname }, process.env.KEY, { expiresIn: '2h' }, function (err, token) {
                 if (err) {
                   console.log(err);
-                  res.send.Status(500);
+                  res.sendStatus(500);
                 } else {
+                  // console.log(token)
                   res.setHeader("Content-Type", "application/json");
                   res.send(JSON.stringify({ token: token }));
                 }

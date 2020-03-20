@@ -10,6 +10,8 @@
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.4.1",
     "email-validator": "^2.0.4",
+    "jsonwebtoken": "^8.5.1",
+    "notistack": "^0.9.9",
     "react": "^16.13.0",
     "react-bootstrap": "^1.0.0-beta.17",
     "react-cookies": "^0.1.1",

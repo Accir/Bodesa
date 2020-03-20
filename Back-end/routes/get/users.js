@@ -1,16 +1,17 @@
 const express = require('express')
 const router = express.Router()
 const db = require("../../config/database")
-const model = require('../../models/userModel')
+const user = require('../../models/userModel')
 
-router.get('/', (req, res) => model.findAll()
-    .then(user => {
-        res.send(JSON.stringify(user))
-
-    })
-    .catch(err => {
+router.get('/', async (req, res) => {
+    try {
+        var response = await user.findAll()
+    }
+    catch (err) {
         console.log(err)
-        res.sendStatus(500)
-    }))
+        return res.status(500).send(JSON.stringify({ error: "Internal server error" }))
+    }
+    return res.send(JSON.stringify(response))
+})
 
 module.exports = router;

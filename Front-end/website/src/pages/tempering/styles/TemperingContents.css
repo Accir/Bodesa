@@ -1,0 +1,50 @@
+.thickness-form {
+  width: 100%;
+}
+
+.production-type-form {
+  width: 100%;
+}
+
+.units-form {
+  width: 100%;
+}
+
+.add-icon {
+  font-size: 30px !important;
+}
+
+.add-icon:hover {
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+.add-col {
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  padding-right: 0 !important;
+}
+
+.coef-label {
+  font-size: 14px !important;
+}
+
+.delete-icon {
+  font-size: 30px !important;
+}
+
+.delete-icon:hover {
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+.coef-input > input[type=number]::-webkit-inner-spin-button,
+.coef-input > input[type=number]::-webkit-outer-spin-button   {
+  -webkit-appearance: none; 
+  margin: 0;
+}
+
+.contents-wrapper {
+  margin-top: 10px;
+}

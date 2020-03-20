@@ -42,7 +42,8 @@ const User = sequelize.define('account', {
     Sequelize,
     modelName: 'account',
     freezeTableName: true,
-    createdAt: 'created_on'
+    charset: 'utf8',
+    collate: 'utf8_unicode_ci'
 })
 
 // User.sync({})

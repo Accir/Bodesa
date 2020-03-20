@@ -134,6 +134,7 @@ class Register extends React.Component {
           alreadyExists: undefined,
           error: undefined
         });
+        this.props.history.push("/menu")
       } else {
         this.setState({
           error: true

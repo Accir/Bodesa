@@ -1,0 +1,35 @@
+.cutting-error-wrapper {
+  color: white !important;
+  padding: 6px 16px;
+    font-size: 0.875rem;
+    min-width: 64px;
+    box-sizing: border-box;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    line-height: 1.75;
+    border-radius: 4px;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    transition: opacity 0.2s ease-in;
+}
+
+.cutting-error-color {
+    background-color: #e00c0c;
+}
+
+.cutting-success-color {
+  background-color: #178308;
+}
+
+.cutting-error-hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.cutting-error-shown {
+  visibility: visible;
+  opacity: 1;
+}

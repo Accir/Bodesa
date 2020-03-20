@@ -1,6 +1,7 @@
 .sidenav-paper {
-    margin-top: 80px;
+    margin-top: 60px;
     width: 240px;
+    background-color: #314164 !important;
 }
 
 .sidenav-drawer {
@@ -15,4 +16,5 @@
 
 .sidenav-item {
     transition: 0.1s;
+    color: white;
 }

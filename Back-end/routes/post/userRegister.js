@@ -17,12 +17,12 @@ router.post("/", (req, res) => {
     if (!user[1]) {
       res.send(JSON.stringify({ error: "User already exists" }));
     } else {
-      bcrypt.genSalt(saltRounds, function(err, salt) {
+      bcrypt.genSalt(saltRounds, function (err, salt) {
         if (err) {
           console.log(err);
           res.sendStatus(500);
         } else {
-          bcrypt.hash(req.body.password, salt, function(err, hash) {
+          bcrypt.hash(req.body.password, salt, function (err, hash) {
             if (err) {
               console.log(err);
               res.sendStatus(500);
@@ -31,10 +31,10 @@ router.post("/", (req, res) => {
               user[0].name = req.body.name;
               user[0].surname = req.body.surname;
               user[0].id = Sequelize.UUIDV4;
-              jwt.sign({ id: user[0].id, email: user[0].email }, process.env.KEY, function(err, token) {
+              jwt.sign({ id: user[0].id, email: user[0].email, name: user[0].name, surname: user[0].surname }, process.env.KEY, { expiresIn: '2h' }, function (err, token) {
                 if (err) {
                   console.log(err);
-                  res.send.Status(500);
+                  res.sendStatus(500);
                 } else {
                   try {
                     res.setHeader("Content-Type", "application/json");

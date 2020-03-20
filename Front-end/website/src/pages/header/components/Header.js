@@ -9,6 +9,38 @@ import "../styles/Header.css"
 
 class Header extends React.Component {
 
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            name: undefined,
+            surname: undefined
+        }
+
+        this.onLogout = this.onLogout.bind(this)
+        this.componentDidMount = this.componentDidMount.bind(this)
+    }
+
+    onLogout() {
+        localStorage.removeItem("jwt");
+    }
+    componentDidMount() {
+        let jwt = require('jsonwebtoken')
+        let token = localStorage.getItem('jwt')
+
+        try {
+            if (token) {
+                let decoded = jwt.decode(token)
+                this.setState({
+                    name: decoded.name,
+                    surname: decoded.surname
+                })
+            }
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
 
     render() {
         return (
@@ -19,8 +51,8 @@ class Header extends React.Component {
                     </div>
                     <div className="right">
                         <Row className="header-right-row">
-                            <Profile />
-                            <Logout />
+                            <Profile handleName={this.state.name} handleSurname={this.state.surname} />
+                            <Logout handleLogout={this.onLogout} />
                         </Row>
                     </div>
                 </Container>

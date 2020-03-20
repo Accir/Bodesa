@@ -4,6 +4,7 @@ import Sidebar from "./Sidebar"
 // import Row from "react-bootstrap/Row"
 // import Col from "react-bootstrap/Col"
 import Divider from "@material-ui/core/Divider"
+import Tempering from "../../tempering/components/Tempering"
 
 class Menu extends React.Component {
     render() {
@@ -12,6 +13,7 @@ class Menu extends React.Component {
                 <Header />
                 <Divider />
                 <Sidebar />
+                <Tempering />
 
             </div>
         )
